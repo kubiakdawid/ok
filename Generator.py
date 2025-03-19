@@ -1,10 +1,5 @@
 import itertools
-import matplotlib
 import networkx as nx
-import matplotlib.pyplot as plt
-
-matplotlib.use('TkAgg')
-
 
 def is_valid_coloring(graph, coloring):
     for u, v in graph.edges():
@@ -45,7 +40,3 @@ coloring_result = greedy_coloring(G)
 print('Coloring:', coloring_result) #Kolory wierzchołków
 print('Valid:', is_valid_coloring(G, coloring_result)) #Poprawność
 print('K:', len(set(coloring_result.values()))) #Ilość kolorów
-
-color_map = [coloring_result[node] for node in G.nodes()]
-nx.draw(G, node_color=color_map, with_labels=True, font_weight='bold')
-plt.show()
