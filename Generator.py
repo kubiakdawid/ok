@@ -53,7 +53,7 @@ print('Coloring:', coloring_result) #Kolory wierzchołków
 print('Valid:', is_valid_coloring(G, coloring_result)) #Poprawność
 print('K:', len(set(coloring_result.values()))) #Ilość kolorów
 
-ac_result = ant_colony_coloring(graph, 10, 100, 1, 1, 0.5, 1)
-ac_color_count = len(set(ac_result.values()))
-print(f'Ant Colony Coloring: {ac_result}')
-print(f'Ant Colony K: {ac_color_count}')
+#ac_result = ant_colony_coloring(graph, 10, 100, 1, 1, 0.5, 1)
+#ac_color_count = len(set(ac_result.values()))
+#print(f'Ant Colony Coloring: {ac_result}')
+#print(f'Ant Colony K: {ac_color_count}')
