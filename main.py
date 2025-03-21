@@ -24,6 +24,8 @@ class GrafMacierzowy():
             self.wierzcholki.add(v)
             self.wierzcholki.add(w)
 
+# parametr p to prawdopodobieństwo pojawienia się każdej możliwej krawędzi między dwoma wierzchołkami
+# 0 - rzadki, 1 - gęsty
     def generuj_graf(self, p: float):
         for i in range(self.rozmiar):
             for j in range(i + 1, self.rozmiar):
@@ -38,8 +40,4 @@ class GrafMacierzowy():
                     if self.macierz[i][j] == 1:
                         f.write(f"{i + 1} {j + 1}\n")
 
-
-graf = GrafMacierzowy(100)
-graf.generuj_graf(0.5)
-graf.zapisz("generowanie/graf.txt")
 
