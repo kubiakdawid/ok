@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <title>Metaheurystyka</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kolorowanie Grafu</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Witaj w Programie</h1>
+  <div class="container">
+    <h1>Kolorowanie Grafu</h1>
+    <form method="POST" enctype="multipart/form-data">
+      <label for="graph_file">Wybierz plik z grafem:</label>
+      <input id="graph_file" type="file" name="graph_file" accept=".txt" required>
+      <button type="submit">Uruchom</button>
+    </form>
+
+    {% if result %}
+    <div class="results">
+      {% for name,data in result.items() %}
+      <div class="card">
+        <h2>{{ name }}</h2>
+        <p>Poprawność: <span class="{{ 'ok' if data.valid else 'bad' }}">{{ 'Tak' if data.valid else 'Nie' }}</span></p>
+        <p>Liczba kolorów: {{ data.colors }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
 </body>
 </html>
