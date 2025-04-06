@@ -20,3 +20,4 @@ def dsatur_coloring(graph):
                 saturation[nbr] = len(neighbor_forbidden)
 
     return coloring
+#dsatur dodac tabu
