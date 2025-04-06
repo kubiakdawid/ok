@@ -20,7 +20,7 @@ def compute_colorings(graph):
             'valid': all(greedy[u] != greedy[v] for u, v in graph.edges()),
             'colors': len(set(greedy.values()))
         },
-        'DSatur': {
+        'TS+DSatur': {
             'valid': all(dsatur[u] != dsatur[v] for u, v in graph.edges()),
             'colors': len(set(dsatur.values()))
         }
