@@ -90,3 +90,30 @@ def dsatur_tabu_coloring(graph, max_iter=1000, tabu_tenure=7):
     initial = dsatur_coloring(graph)
     improved = tabu_search_reduce_colors(graph, initial, max_iter, tabu_tenure)
     return improved
+
+# ╔══════════════════════════════════════════════════════════════════════════╗
+# ║                         ALGORYTM DSATUR + TABU SEARCH                    ║
+# ║                       Parametry strojenia heurystyki                     ║
+# ║                         © Kubiak & Żurczak · 2025                        ║
+# ╚══════════════════════════════════════════════════════════════════════════╝
+
+# max_iter           → Maksymalna liczba iteracji tabu search.
+#                      Większa = dokładniejsze przeszukiwanie, ale wolniejsze działanie.
+#                      Wartość typowa: 500–5000, zależnie od rozmiaru grafu.
+
+# tabu_tenure        → Długość zakazu cofania zmian (długość listy tabu).
+#                      Wyższa wartość = większa różnorodność, ale wolniejsza zbieżność.
+#                      Typowo 5–15 lub dynamiczna np. sqrt(n).
+
+# current_solution[node] = randint(...)
+#                    → Metoda inicjalizacji kolorów wierzchołków do ponownego pokolorowania.
+#                      Lepsze: przypisz kolor najmniej używany w sąsiedztwie lub o najmniejszym konflikcie.
+
+# delta              → Zmiana liczby konfliktów dla danego ruchu.
+#                      Używane do wyboru najlepszego ruchu w danej iteracji (ruch o najmniejszym delta).
+
+# success            → Flaga określająca, czy udało się uzyskać kolorowanie bez konfliktów
+#                      po redukcji liczby kolorów.
+
+# nodes_to_reassign  → Lista wierzchołków do rekonstrukcji po usunięciu najwyższego koloru.
+#                      Ich ponowne przypisanie decyduje o sukcesie redukcji liczby kolorów.
